@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>İletişim – Faruk Seyfi Dinav</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #2e86de;
+      --bg: #1c1c1c;
+      --text: #f1f1f1;
+      --input-bg: #333;
+      --border: #555;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1b4f72;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .nav-logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .language-switch img {
+      width: 24px;
+      height: 16px;
+      margin-left: 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .language-switch img:hover {
+      transform: scale(1.1);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 30px 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #2b2b2b;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .contact-info {
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: var(--input-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 10px;
+      background-color: #28a745;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #111;
+      color: #aaa;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #2e86de;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">FarukSD</div>
+    <div class="language-switch">
+      <a href="iletisim.html" title="Türkçe"><img src="photos\Ekran görüntüsü 2025-06-04 042921.png" alt="TR"></a>
+      <a href="contact.html" title="English"><img src="photos\Ekran görüntüsü 2025-06-04 043002.png" alt="EN"></a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>İletişim</h1>
+    <p>Bana ulaşmak için formu doldurun veya doğrudan iletişim kurun.</p>
+  </header>
+
+  <div class="container">
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> E-posta: <strong>sayfiddinovfarruh42@mail.com</strong></p>
+      <p><i class="fas fa-phone"></i> Telefon: <strong>+998 99 540 08 98</strong></p>
+    </div>
+
+    <form action="https://formspree.io/f/xdkznrpb" method="POST" id="contactForm">
+      <input type="text" name="isim" placeholder="Adınız" required>
+      <input type="email" name="email" placeholder="E-posta adresiniz" required>
+      <textarea name="mesaj" rows="5" placeholder="Mesajınız..." required></textarea>
+      <button type="submit">Gönder</button>
+      <div class="success-message" id="successMsg">✅ Mesajınız gönderildi!</div>
+    </form>
+  </div>
+
+  <footer>
+    © 2025 Faruk Seyfi Dinav | <a href="me.html">Ana Sayfa</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          successMsg.style.display = 'block';
+        } else {
+          alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

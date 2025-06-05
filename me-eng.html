@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faruk Seyfi Dinav</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #1b4f72;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .language-switch {
+      display: flex;
+      gap: 10px;
+    }
+
+    .language-switch img {
+      width: 24px;
+      height: 16px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .language-switch img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #1b4f72;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .language-switch {
+        justify-content: center;
+      }
+    }
+
+    header {
+      background-color: #2e86de;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 100px;
+      margin-top: -30px;
+      border: 5px solid white;
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 40px 20px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #2e86de;
+    }
+
+    .social-links a i {
+      margin-right: 5px;
+    }
+
+    footer {
+      background-color: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 50px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #2e86de;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">FarukSD</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="about-me.html"><i class="fas fa-user"></i> About Me</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <div class="language-switch">
+        <a href="me.html" title="Türkçe">
+          <img src="photos/Ekran görüntüsü 2025-06-04 042921.png" alt="Türkçe">
+        </a>
+        <a href="me-eng.html" title="English">
+            <img src="photos\Ekran görüntüsü 2025-06-04 043002.png" alt="English">
+          </a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Faruk Seyfiddinav</h1>
+    <p>Interior Design & Web Design Enthusiast</p>
+  </header>
+
+  <img src="photos/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-06-01%20052915.png" alt="Faruk Seyfi Dinav">
+
+  <div class="content">
+    <h2>About Me</h2>
+    <p>Hello! I'm Faruk. I am interested in interior design and web design. In my free time, I study Korean and explore new knowledge.</p>
+
+    <h2>Contact</h2>
+    <div class="social-links">
+      <a href="https://www.instagram.com/farruh_sayfiddinov/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
+      <a href="#"><i class="fab fa-github"></i>GitHub</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Faruk Seyfi Dinav |
+    <a href="me-eng.html">Home</a> •
+    <a href="contact.html">Contact</a>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
